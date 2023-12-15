@@ -63,7 +63,6 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $currencies = Currency::find()
-            ->where(['code' => ['TST', 'TSR']])
             ->all();
         return $this->render('currency', ['currencies' => $currencies]);
     }
