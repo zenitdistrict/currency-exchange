@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Currency;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -61,7 +62,10 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $currencies = Currency::find()
+            ->where(['code' => ['TST', 'TSR']])
+            ->all();
+        return $this->render('currency', ['currencies' => $currencies]);
     }
 
     /**
