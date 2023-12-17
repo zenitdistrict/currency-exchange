@@ -62,9 +62,24 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $currencies = Currency::find()
-            ->all();
+        $currencies = \Yii::$app->currencyExchanger->exchange(\Yii::$app->params['defaultCurrency'], 100);
+
         return $this->render('currency', ['currencies' => $currencies]);
+    }
+
+    /**
+     * Exchanges currencies.
+     *
+     * @return
+     */
+    public function actionExchange()
+    {
+        $code = \Yii::$app->request->get('code');
+        $value = \Yii::$app->request->get('value');
+
+        $currencies = \Yii::$app->currencyExchanger->exchange($code, $value);
+
+        return json_encode(['currencies' => $currencies]);
     }
 
     /**

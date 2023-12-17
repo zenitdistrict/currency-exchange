@@ -41,15 +41,16 @@ $config = [
                 ],
             ],
         ],
+        'currencyExchanger' => [
+            'class' => \app\services\CurrencyExchanger::class,
+        ],
         'db' => $db,
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
             ],
         ],
-        */
     ],
     'params' => $params,
 ];
