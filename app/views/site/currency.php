@@ -1,10 +1,3 @@
-<script type="text/javascript" src="/js/jquery.js"></script>
-<script type="text/javascript" src="/js/currency.js"></script>
-<link href="/css/currency.css" rel="stylesheet">
-<link href="/css/currency1.css" rel="stylesheet">
-<link href="/css/currency2.css" rel="stylesheet">
-
-
 <div class="container main-container xxx-main-container ">
     <div class="xxx-top-content xxx-top-content--bg-transparent xxx-top-content--p-b-20 ">
         <div class="xxx-container">
@@ -34,7 +27,7 @@
                                                data-cur-name="<?= $currency['code'] ?>"
                                                data-cur-multiplier="1" type="tel"
                                                inputmode="decimal"
-                                               class="xxx-input-converter__input xxx-full-width">
+                                               class="xxx-input-converter__input xxx-full-width currency-input">
                                         <span class="xxx-input-converter__before-text"> <?= $currency['code'] ?> </span>
                                         <img class="xxx-input-converter__img" src="/images/<?= $currency['code'] ?>.svg" alt="<?= $currency['code'] ?>-icon">
                                     </div>
@@ -48,3 +41,9 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/currency.js"></script>
+<link href="/css/currency.css" rel="stylesheet">
+<link href="/css/currency1.css" rel="stylesheet">
+<link href="/css/currency2.css" rel="stylesheet">
