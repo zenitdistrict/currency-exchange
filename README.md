@@ -10,17 +10,17 @@ docker-compose up -d
 ```
 install yii framework:
 ```
-docker-compose run composer install --ignore-platform-reqs
+docker-compose run composer install
 ```
 create database as named in MYSQL_DATABASE
 
 run migrations:
 ```
-docker-compose exec -ti php php yii migrate/up
+docker exec -ti "$(docker ps -aqf ancestor=nanoninja/php-fpm:8.1)" php yii migrate/up
 ```
 run currency parser (add it to cron job to run every day):
 ```
-docker-compose exec -ti php php yii currency/parse
+docker exec -ti "$(docker ps -aqf ancestor=nanoninja/php-fpm:8.1)" php yii currency/parse
 ```
 go to homepage:
 ```
