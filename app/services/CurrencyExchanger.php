@@ -26,6 +26,7 @@ class CurrencyExchanger
     private function exchangeByDefaultCurrency($value, $exception = null)
     {
         $resultCurrencies = [];
+        // TODO: put it to another method for work with DB
         $exchangeCurrencies = Currency::find()
             ->where(['code' => \Yii::$app->params['currencies']])
             ->all();
@@ -48,6 +49,7 @@ class CurrencyExchanger
 
     private function exchangeByCurrency($currencyCode, $value)
     {
+        // TODO: put it to another method for work with DB
         $currency = Currency::findOne(['code' => $currencyCode]);
         $valueForDefaultCurrency = round(
             $value / $currency->nominal * $currency->value,
